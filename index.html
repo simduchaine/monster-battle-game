@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monster Slayer</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+
+</head>
+<body>
+<div id="app">
+    <section id="graphics" class="row" v-if="gameIsRunning">
+        <img id="fog" class="vfx" src="./assets/fog.png" alt="">
+        <img id="fog2" class="vfx" src="./assets/fog.png" alt="">
+        <div class="small-6 columns">
+            <h1 class="text-center">YOU</h1>
+            <div class="sprite">
+                <img id="blood" class="vfx" src="./assets/blood.gif" alt="" v-show="hasDamage">
+                <img id="healing" class="vfx" src="./assets/heal.gif" alt="" v-show="isHealed">
+                <img src="./assets/warior2.gif" alt="" height="250px">
+            </div>
+            <div class="healthbar">
+                <div 
+                    class="healthbar text-center" 
+                    style="background-color: green; margin: 0; color: white;"
+                    :style="{width: playerHealth + '%'}">
+                    {{ playerHealth }}
+                </div>
+            </div>
+        </div>
+        <div class="small-6 columns">
+            <h1 class="text-center">MONSTER</h1>
+            <div class="sprite">
+                <img id="blood" class="vfx" src="./assets/blood.gif" alt="" v-show="hasDamage">
+                <img src="./assets/monster.gif" alt="" height="250px">
+            </div>
+            <div class="healthbar">
+                <div 
+                    class="healthbar text-center" 
+                    style="background-color: green; margin: 0; color: white;"
+                    :style="{width: monsterHealth + '%'}">
+                    {{ monsterHealth }}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row controls" v-if="!gameIsRunning">
+        <div class="small-12 columns">
+            <button id="start-game" @click="startGame">START NEW GAME</button>
+        </div>
+    </section>
+    <section class="row controls" v-else>
+        <div class="small-12 columns">
+            <button id="attack" @click="attack">ATTACK</button>
+            <button id="special-attack" @click="specialAttack">SPECIAL ATTACK</button>
+            <button id="heal" @click="heal">HEAL</button>
+            <button id="give-up" @click="giveUp">GIVE UP</button>
+        </div>
+    </section>
+    <section class="row log" v-if="gameIsRunning">
+        <div class="small-12 columns">
+            <ul>
+                <li>
+
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+
+<audio id="song" loop src="./assets/Visager_-_29_-_Eerie_Mausoleum_Loop.mp3" type="audio/mp3">
+    Your browser does not support the <code>audio</code> element.
+</audio>
+<script src="app.js"></script>
+</body>
+</html>
