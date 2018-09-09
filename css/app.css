@@ -1,5 +1,11 @@
 body {
     font-family: 'Righteous', cursive;
+    background: #1a1b21;
+    background-image: url('../assets/zwartevilt.png');
+}
+
+.title {
+    margin-top: 40px;
 }
 
 #graphics {
@@ -8,7 +14,6 @@ body {
     background-repeat: no-repeat;
     background-size: 1000px;
     height: 600px;
-    margin-top: 40px;
     position: relative;
     overflow: hidden;
 }
@@ -63,6 +68,7 @@ body {
     background-color: #941818;
     margin: auto;
     transition: width 500ms;
+    line-height: 37px;
 }
 
 .controls, .log {
@@ -70,7 +76,12 @@ body {
     text-align: center;
     padding: 10px;
     border: 1px solid #ccc;
-    box-shadow: 0px 3px 6px #ccc;
+    /*box-shadow: 0px 3px 6px #ccc; */
+    background: white;
+}
+
+.log {
+    margin-bottom: 40px;
 }
 
 .turn {
